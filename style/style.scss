@@ -2,7 +2,7 @@ $text-color-light: #fff;
 $color-blue-leght: #06aeee;
 $color-blue-dark: #0021dd;
 $color-green: #01e820;
-$color-orange: #FF7901;
+$color-orange: #ff7901;
 $color-black: #000;
 
 @mixin main-text {
@@ -50,7 +50,6 @@ a,
 button {
   cursor: pointer;
   text-decoration: none;
-
 }
 
 .center {
@@ -59,7 +58,7 @@ button {
 }
 
 .header {
-  height: 128px;
+  min-height: 136px;
   background-color: $color-blue-leght;
   border-bottom: 6px solid $color-green;
   display: flex;
@@ -73,7 +72,14 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  padding: 0px 40px;
+  padding: 0 40px;
+}
+
+.header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
 }
 
 .logo {
@@ -81,8 +87,7 @@ button {
 }
 
 .logo-img {
-  width: 102px;
-
+  width: 128px;
 }
 
 .capitan-gif {
@@ -100,15 +105,53 @@ button {
   margin-bottom: 4px;
 }
 
-.twitter-icon {
-  padding: 8px;
+.contacts-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 2px solid black;
+  border-radius: 8px;
+  transition: 0.3s;
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.06);
+    transform: scale(1.07);
+  }
+
+  &:hover .contact-icon {
+    transform: scale(1.15);
   }
 }
 
+.contacts-block__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-icon {
+  width: 22px;
+}
+
+.contact-icon__email {
+  width: 36px;
+}
+
+.contact-btn__white {
+  background: #fff;
+  border: 2px solid #fff;
+}
 
 @keyframes rotation {
   0% {
@@ -124,23 +167,11 @@ button {
   }
 }
 
-.telegram-icon {
-  width: 32px;
-
-  &:hover {
-    animation-name: rotation;
-    animation-duration: 0.6s;
-    animation-timing-function: linear;
-  }
-}
-
-
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 28px;
-
+  gap: 18px;
 }
 
 .nav-link {
@@ -161,7 +192,7 @@ button {
   display: block;
 }
 
-.btn-game {
+.btn-market {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -174,7 +205,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 160px;
+  max-width: 170px;
   max-height: 65px;
   background-color: $color-black;
   border: 4px solid $color-green;
@@ -184,7 +215,7 @@ button {
   &:hover {
     cursor: pointer;
     background-color: $color-blue-dark;
-    transform: scale(1.06);
+    transform: scale(1.05);
   }
 }
 
@@ -196,7 +227,11 @@ button {
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  background-image: linear-gradient(180deg, rgba(0, 220, 235, 0.27), rgb(56 87 199 / 36%))
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 220, 235, 0.27),
+    rgb(56 87 199 / 36%)
+  );
 }
 
 .banner video {
@@ -265,7 +300,7 @@ button {
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.06);
+    transform: scale(1.05);
   }
 }
 
@@ -382,10 +417,9 @@ button {
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 }
-
 
 .roadmap {
   min-height: 800px;
@@ -470,7 +504,6 @@ button {
   color: $color-black;
 }
 
-
 .details-block {
   display: flex;
   flex-direction: column;
@@ -480,7 +513,7 @@ button {
 
 .details-card {
   max-width: 800px;
-  background: #FF9333;
+  background: #ff9333;
   padding: 24px 16px;
   display: flex;
   flex-direction: column;
@@ -520,7 +553,7 @@ details summary::-webkit-details-marker {
   font-size: 42px;
 }
 
-.details-card[open] .details-heading~* {
+.details-card[open] .details-heading ~ * {
   animation: open 0.3s ease-in-out;
 }
 
@@ -542,8 +575,6 @@ details summary::-webkit-details-marker {
   padding: 20px 0 0;
 }
 
-
-
 .footer {
   min-height: 260px;
   background: $color-black;
@@ -558,28 +589,11 @@ details summary::-webkit-details-marker {
   padding: 40px;
 }
 
-
 .footer-content__contacts {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 52px
-}
-
-.contacts-block__item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 18px;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:hover .contact-icon {
-    cursor: pointer;
-    transform: scale(1.25);
-  }
+  gap: 82px;
 }
 
 .contact-name {
@@ -588,11 +602,6 @@ details summary::-webkit-details-marker {
   font-weight: 400;
   color: rgb(234, 239, 245);
   display: block;
-}
-
-.contact-icon {
-  width: 42px;
-  transition: 0.3s;
 }
 
 .footer-content__copy {
@@ -616,10 +625,7 @@ details summary::-webkit-details-marker {
   animation-timing-function: linear;
 }
 
-
-
-@media (max-width : 1360px) {
-
+@media (max-width: 1360px) {
   .about-wrapper {
     flex-wrap: wrap;
   }
@@ -629,9 +635,12 @@ details summary::-webkit-details-marker {
   }
 }
 
-
-@media (max-width : 1080px) {
-
+@media (max-width: 1140px) {
+  .hidden {
+    display: none;
+  }
+}
+@media (max-width: 1080px) {
   .container {
     width: 700px;
   }
@@ -651,11 +660,7 @@ details summary::-webkit-details-marker {
   }
 }
 
-@media (max-width : 1024px) {
-  .btn-game {
-    display: none;
-  }
-
+@media (max-width: 1024px) {
   .heading {
     font-size: 42px;
     line-height: 48px;
@@ -666,29 +671,22 @@ details summary::-webkit-details-marker {
   }
 }
 
-@media (max-width : 930px) {
-
-  .hidden {
-    display: none;
-  }
-
+@media (max-width: 930px) {
   .banner-btn {
     font-size: 20px;
   }
-
 }
 
-
-@media (max-width : 847px) {
-
+@media (max-width: 847px) {
   .list-items {
     justify-content: center;
   }
-
 }
 
-@media (max-width : 810px) {
-
+@media (max-width: 810px) {
+  .logo-img {
+    width: 100px;
+  }
   .about-img {
     max-width: 500px;
   }
@@ -715,10 +713,12 @@ details summary::-webkit-details-marker {
     width: 42px;
     height: 42px;
   }
-
 }
 
-@media (max-width : 670px) {
+@media (max-width: 670px) {
+  .logo {
+    display: none;
+  }
 
   .nft {
     padding: 60px 40px;
@@ -757,11 +757,14 @@ details summary::-webkit-details-marker {
     height: auto;
     margin: 0 auto;
   }
-
 }
 
-@media (max-width : 590px) {
-
+@media (max-width: 590px) {
+  .header-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 20px;
+  }
   .nft {
     padding: 20px 20px 40px;
   }
@@ -819,22 +822,15 @@ details summary::-webkit-details-marker {
   .copy-text {
     font-size: 18px;
   }
-
 }
 
-@media (max-width : 495px) {
-
+@media (max-width: 495px) {
   .header {
     height: 110px;
   }
 
   .header-wrapper {
-    padding: 0 20px;
     gap: 14px;
-  }
-
-  .logo-img {
-    width: 78px;
   }
 
   .nav-link {
@@ -864,10 +860,9 @@ details summary::-webkit-details-marker {
   }
 }
 
-@media (max-width : 320px) {
-
+@media (max-width: 320px) {
   .header-wrapper {
-    padding: 0 10px;
+    padding: 15px 10px;
   }
 
   .nav-link {
