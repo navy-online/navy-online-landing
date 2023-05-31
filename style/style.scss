@@ -62,7 +62,7 @@ button {
   width: 100%;
   min-height: 136px;
   background-image: url("/images/Menu.png");
-  background-size: no-repeat;
+  background-repeat: no-repeat;
   // background-position: center;
   background-size: cover;
   position: absolute;
@@ -146,7 +146,7 @@ button {
 }
 
 .contact-icon {
-  width: 36px;
+  width: 32px;
 }
 
 .contact-icon__email {
@@ -269,8 +269,13 @@ button {
 }
 
 .heading-block {
-  @include big-title;
+  font-family: "Exo", sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  text-transform: uppercase;
   color: $color-black;
+  align-self: flex-start;
 }
 
 .subheading {
@@ -312,32 +317,54 @@ button {
 }
 
 .about {
-  max-width: 2000px;
+  min-height: 800px;
   background-image: url("/images/bg_page1.png");
-  background-size: no-repeat;
-  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  margin: 0 auto;
-  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.about-wrapper {
+.about-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 48px;
+  margin: 0 auto;
+  padding: 60px 40px;
 }
 
-.about-description {
+.about-container {
+  width: 1400px;
+  height: 700px;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-slider {
+  width: 1400px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.about-slider_card {
+  width: 1300px;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 48px;
+  margin: 0 50px;
 }
 
 .section-description {
-  max-width: 800px;
+  min-width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -372,8 +399,7 @@ button {
 .nft {
   min-height: 800px; //
   background-image: url("/images/bg_page2.png");
-  background-size: no-repeat;
-  // background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -382,14 +408,14 @@ button {
   // background: $color-green;
 }
 
-.container {
+.nft-container {
   width: 1000px;
   height: 760px;
   overflow: hidden;
   position: relative;
 }
 
-.slider {
+.nft-slider {
   width: 1000px;
   height: 100%;
   position: absolute;
@@ -399,7 +425,7 @@ button {
   transition: transform 0.5s ease-in-out;
 }
 
-.slider_card {
+.nft-slider_card {
   width: 900px;
   height: 100%;
   display: flex;
@@ -451,31 +477,35 @@ button {
 .tokenomics {
   min-height: 800px;
   // background: $text-color-light;
-  background-image: url("/images/bg_page1.png");
-  background-size: no-repeat;
-  background-position: center;
+  background-image: url("/images/bg-page22.png");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
 .tokenomics-block {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: 24px;
   padding: 60px 40px;
 }
 
 .tokenomics-img {
-  max-width: 1260px;
+  height: auto;
+  width: 100%;
+  max-width: 1040px;
   min-width: 320px;
+  // object-fit: contain;
+  align-self: center;
 }
 
 .roadmap {
   min-height: 800px;
   // background: $color-blue-dark;
   background-image: url("/images/bg_page2.png");
-  background-size: no-repeat;
-  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -487,7 +517,8 @@ button {
   padding: 60px 40px;
 }
 
-.flex_block {
+.roadmap-header {
+  height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -548,10 +579,9 @@ button {
 }
 
 .partner {
-  min-height: 600px;
+  min-height: 800px;
   background-image: url("/images/bg_page1.png");
-  background-size: no-repeat;
-  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -569,14 +599,13 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 36px;
-  margin-top: 90px;
+  margin-top: 120px;
 }
 
 .team {
   min-height: 800px;
   background-image: url("/images/bg_page2.png");
-  background-size: no-repeat;
-  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -598,12 +627,33 @@ button {
   gap: 36px;
 }
 
+.team-item {
+  position: relative;
+}
+
+.team-item__name {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 20px;
+  font-weight: 800;
+  color: $color-black;
+  width: 300px;
+  position: absolute;
+  left: 11%;
+  bottom: 5%;
+
+  &-min {
+    left: 30%;
+    bottom: 10%;
+  }
+}
+
 .info {
   min-height: 800px;
   // background: $color-orange;
-  background-image: url("/images/bg_page1.png");
-  background-size: no-repeat;
-  background-position: center;
+  background-image: url("/images/bg-page22.png");
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -755,6 +805,11 @@ details summary::-webkit-details-marker {
   animation-timing-function: linear;
 }
 
+@media (max-width: 1560px) {
+  .about-slider_card {
+    flex-direction: column-reverse;
+  }
+}
 @media (max-width: 1360px) {
   .about-wrapper {
     flex-wrap: wrap;
@@ -771,15 +826,27 @@ details summary::-webkit-details-marker {
   }
 }
 @media (max-width: 1080px) {
-  .container {
+  .about-container {
     width: 700px;
   }
 
-  .slider {
+  .about-slider {
     width: 700px;
   }
 
-  .slider_card {
+  .about-slider_card {
+    width: 600px;
+  }
+
+  .nft-container {
+    width: 700px;
+  }
+
+  .nft-slider {
+    width: 700px;
+  }
+
+  .nft-slider_card {
     width: 600px;
   }
 
@@ -814,6 +881,10 @@ details summary::-webkit-details-marker {
     padding: 20px 20px;
   }
 
+  .heading-block {
+    font-size: 42px;
+  }
+
   .logo-img {
     width: 200px;
   }
@@ -824,19 +895,31 @@ details summary::-webkit-details-marker {
 }
 
 @media (max-width: 810px) {
+  .about-container {
+    width: 600px;
+  }
+
+  .about-slider {
+    width: 600px;
+  }
+
+  .about-slider_card {
+    width: 500px;
+  }
+
   .about-img {
     max-width: 500px;
   }
 
-  .container {
+  .nft-container {
     width: 600px;
   }
 
-  .slider {
+  .nft-slider {
     width: 600px;
   }
 
-  .slider_card {
+  .nft-slider_card {
     width: 500px;
   }
 
@@ -878,12 +961,12 @@ details summary::-webkit-details-marker {
     font-size: 22px;
   }
 
-  .container {
+  .about-container {
     height: 1600px;
     max-width: 650px;
   }
 
-  .slider {
+  .about-slider {
     max-width: 100%;
     flex-direction: column;
     justify-content: flex-start;
@@ -893,7 +976,28 @@ details summary::-webkit-details-marker {
     margin: 0 auto;
   }
 
-  .slider_card {
+  .about-slider_card {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .nft-container {
+    height: 1600px;
+    max-width: 650px;
+  }
+
+  .nft-slider {
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    gap: 42px;
+    top: 50px;
+    margin: 0 auto;
+  }
+
+  .nft-slider_card {
     max-width: 100%;
     height: auto;
     margin: 0 auto;
@@ -901,6 +1005,10 @@ details summary::-webkit-details-marker {
 }
 
 @media (max-width: 590px) {
+  .heading-block {
+    font-size: 36px;
+  }
+
   .nft {
     padding: 20px 20px 40px;
   }
@@ -918,7 +1026,7 @@ details summary::-webkit-details-marker {
     max-width: 400px;
   }
 
-  .container {
+  .nft-container {
     height: 1300px;
   }
 
