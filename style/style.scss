@@ -806,8 +806,14 @@ details summary::-webkit-details-marker {
 }
 
 @media (max-width: 1560px) {
+  .about-container {
+    width: 800px;
+    height: 1160px;
+  }
+
   .about-slider_card {
     flex-direction: column-reverse;
+    justify-content: flex-end;
   }
 }
 @media (max-width: 1360px) {
